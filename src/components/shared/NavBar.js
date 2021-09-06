@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Container, Menu, Button } from 'semantic-ui-react'
+import { Container, Header, Icon, Menu, Button } from 'semantic-ui-react'
 
 const NavBar = () => {
     // WHY AREN'T MY HOOKS WORKING? DO I WANT/NEED THEM IN THIS CASE??
@@ -12,8 +12,11 @@ const NavBar = () => {
     console.log('this is activeItem in header', activeItem);
     
     return (
-			<Container>
-				<h1>Librarium</h1>
+			<Container style={{ 'padding-top': '1rem' }} textAlign='center'>
+				<Icon name='book' size='big' />
+				<Header as='h1' icon>
+					Librarium
+				</Header>
 				<Menu>
 					<Menu.Item
 						name='home'
