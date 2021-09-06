@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Container, Menu, Button } from 'semantic-ui-react'
 
-const Header = () => {
+const NavBar = () => {
     // WHY AREN'T MY HOOKS WORKING? DO I WANT/NEED THEM IN THIS CASE??
     const [activeItem, setActiveItem] = useState('home')
 
@@ -39,4 +39,4 @@ const Header = () => {
 		)
 }
 
-export default Header
+export default NavBar

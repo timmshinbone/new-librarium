@@ -1,11 +1,11 @@
 import './index.scss';
 import 'semantic-ui-css/semantic.min.css'
-import Header from './components/shared/Header'
+import NavBar from './components/shared/NavBar'
 
 function App() {
   return (
     <div className="App">
-      <Header />
+      <NavBar />
       <h1>Librarium</h1>
     </div>
   );
