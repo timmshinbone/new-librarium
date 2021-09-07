@@ -9,6 +9,7 @@ const NavBar = ({ user, msgAlert }) => {
     const handleItemClick = (e, { name }) => {
         console.log(e.target) 
         setActiveItem(name)
+		// code for calling a msgAlert, use in all auth components
 		msgAlert({
 			heading: 'Test Message Success',
 			message: messages.testMessage,
