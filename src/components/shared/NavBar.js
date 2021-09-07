@@ -1,13 +1,19 @@
 import React, { useState } from 'react'
-import { Container, Header, Icon, Menu, Button } from 'semantic-ui-react'
+import { Container, Header, Icon, Menu, Button, Divider } from 'semantic-ui-react'
+import messages from './AutoAlert/messages'
 
-const NavBar = () => {
-    // WHY AREN'T MY HOOKS WORKING? DO I WANT/NEED THEM IN THIS CASE??
+const NavBar = ({ user, msgAlert }) => {
+
     const [activeItem, setActiveItem] = useState('home')
 
     const handleItemClick = (e, { name }) => {
         console.log(e.target) 
         setActiveItem(name)
+		msgAlert({
+			heading: 'Test Message Success',
+			message: messages.testMessage,
+			variant: 'olive'
+		})
     }
     console.log('this is activeItem in header', activeItem);
     
@@ -34,10 +40,11 @@ const NavBar = () => {
 						onClick={handleItemClick}
 					/>
 					<Menu.Item position='right'>
-						<Button>Log In</Button>
+						<Button onClick={handleItemClick}>Log In</Button>
 						<Button>Sign Up</Button>
 					</Menu.Item>
 				</Menu>
+				<Divider/>
 			</Container>
 		)
 }
