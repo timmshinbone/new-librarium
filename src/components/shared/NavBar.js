@@ -12,14 +12,14 @@ const NavBar = ({ user, msgAlert }) => {
 		// code for calling a msgAlert, use in all auth components
 		msgAlert({
 			heading: 'Test Message Success',
-			message: messages.testMessage,
+			msg: messages.testMessage,
 			variant: 'olive'
 		})
     }
     console.log('this is activeItem in header', activeItem);
     
     return (
-			<Container style={{ 'padding-top': '1rem' }} textAlign='center'>
+			<Container style={{ 'paddingTop': '1rem' }} textAlign='center'>
 				<Icon name='book' size='big' />
 				<Header as='h1' icon>
 					Librarium
@@ -41,11 +41,15 @@ const NavBar = ({ user, msgAlert }) => {
 						onClick={handleItemClick}
 					/>
 					<Menu.Item position='right'>
-						<Button onClick={handleItemClick}>Log In</Button>
-						<Button>Sign Up</Button>
+						<Button basic onClick={handleItemClick}>
+							Log In
+						</Button>
+						<Button basic as='a' href='#sign-up'>
+							Sign Up
+						</Button>
 					</Menu.Item>
 				</Menu>
-				<Divider/>
+				<Divider />
 			</Container>
 		)
 }

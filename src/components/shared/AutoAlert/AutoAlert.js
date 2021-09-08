@@ -3,13 +3,21 @@ import { Message } from 'semantic-ui-react'
 
 const msgStyle = {
     'display': 'flex',
-    'max-width': '30rem',
+    'flex-direction': 'column',
+    'maxWidth': '30rem',
+    'minWidth': '18rem',
     'position': 'fixed',
-    'align-items': 'center',
+    'alignItems': 'center',
+    'alignSelf': 'center',
     'bottom': '5px',
     'left': '30rem',
-    'right': '30rem'
+    'right': '30rem',
+    'zIndex': '10000'
 }
+
+// messages will require a color passed as the prop 'variant'
+// success messages should send 'olive'
+// failure/warning messages should send 'red'
 
 class AutoAlert extends Component {
     constructor (props) {
@@ -36,7 +44,7 @@ class AutoAlert extends Component {
 
     render () {
         const { variant, heading, msg, deleteAlert, id } = this.props
-
+        
         if(!this.state.show) {
             setTimeout(() => {
                 deleteAlert(id)
@@ -45,13 +53,14 @@ class AutoAlert extends Component {
 
         return (
             <Message
+                dismissible
                 style={msgStyle}
                 onDismiss={this.handleDismiss}
                 color={ variant }
                 show={this.state.show}
             >
-                <Message.Header>{heading}</Message.Header>
-                <p>{msg}</p>
+                <Message.Header>{heading}</Message.Header><br/>
+                <Message.Content>{msg}</Message.Content>
             </Message>
         )
     }
