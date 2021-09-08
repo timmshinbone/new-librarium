@@ -2,16 +2,16 @@ import React, { Component } from 'react'
 import { withRouter } from 'react-router-dom'
 import { Button, Form, Label, Input } from 'semantic-ui-react'
 
-import { signIn } from '../../api/auth'
+import { changePassword } from '../../api/auth'
 import messages from '../shared/AutoAlert/messages'
 
-class SignIn extends Component {
+class ChangePassword extends Component {
 	constructor(props) {
 		super(props)
 
 		this.state = {
-			email: '',
-			password: ''
+			oldPassword: '',
+			newPassword: '',
 		}
 	}
 
@@ -20,52 +20,51 @@ class SignIn extends Component {
 			[event.target.name]: event.target.value,
 		})
 
-	onSignUp = (event) => {
+	onChangePassword = (event) => {
 		event.preventDefault()
 
-		const { msgAlert, history, setUser } = this.props
+		const { msgAlert, history, user } = this.props
 
-		signIn(this.state)
-			.then((res) => setUser(res.data.user))
+		changePassword(this.state, user)
 			.then(() =>
 				msgAlert({
-					heading: 'Sign In Success!',
-					msg: messages.signInSuccess,
+					heading: 'Change Password Success!',
+					msg: messages.changePasswordSuccess,
 					variant: 'olive',
 				})
 			)
 			.then(() => history.push('/'))
 			.catch((error) => {
-				this.setState({ email: '', password: '' })
+				this.setState({ oldPassword: '', newPassword: '' })
 				msgAlert({
-					heading: 'Sign In Failed with error: ' + error.message,
-					msg: messages.signInFailure,
+					heading: 'Change Password Failed with error: ' + error.message,
+					msg: messages.changePasswordFailure,
 					variant: 'red',
 				})
 			})
 	}
 
 	render() {
-		const { email, password } = this.state
+		const { oldPassword, newPassword } = this.state
 		return (
-			<Form onSubmit={this.onSignUp}>
+			<Form onSubmit={this.onChangePassword}>
 				<Form.Field>
 					<Label>Email</Label>
 					<Input
-						name='email'
-						type='email'
-						value={email}
-						placeholder='email'
+						name='oldPassword'
+						type='password'
+						value={oldPassword}
+						placeholder='old password'
 						onChange={this.handleChange}
 					/>
 				</Form.Field>
 				<Form.Field>
 					<Label>Password</Label>
 					<Input
-						name='password'
+						name='newPassword'
 						type='password'
-						value={password}
-						placeholder='password'
+						value={newPassword}
+						placeholder='new password'
 						onChange={this.handleChange}
 					/>
 				</Form.Field>
@@ -77,4 +76,4 @@ class SignIn extends Component {
 	}
 }
 
-export default withRouter(SignIn)
+export default withRouter(ChangePassword)

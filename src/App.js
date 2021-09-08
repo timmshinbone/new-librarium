@@ -6,9 +6,11 @@ import 'semantic-ui-css/semantic.min.css'
 import NavBar from './components/shared/NavBar'
 import AutoAlert from './components/shared/AutoAlert/AutoAlert'
 import { Container } from 'semantic-ui-react'
+import AuthenticatedRoute from './components/shared/AuthenticatedRoute'
 
 import SignUp from './components/routes/SignUp'
 import SignIn from './components/routes/SignIn'
+import ChangePass from './components/routes/ChangePass'
 
 class App extends Component {
   constructor (props) {
@@ -65,6 +67,13 @@ class App extends Component {
 							<SignIn msgAlert={this.msgAlert} setUser={this.setUser} />
 						)}
 					/>
+          <AuthenticatedRoute
+            user={user}
+            path='/change-pw'
+            render={() => (
+              <ChangePass msgAlert={this.msgAlert} user={user} />
+            )}
+          />
 				</Container>
 			</Fragment>
 		)

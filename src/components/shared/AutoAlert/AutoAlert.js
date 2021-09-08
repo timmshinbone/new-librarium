@@ -3,7 +3,7 @@ import { Message } from 'semantic-ui-react'
 
 const msgStyle = {
     'display': 'flex',
-    'flex-direction': 'column',
+    'flexDirection': 'column',
     'maxWidth': '30rem',
     'minWidth': '18rem',
     'position': 'fixed',
