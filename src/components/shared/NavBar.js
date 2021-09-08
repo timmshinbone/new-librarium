@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { Container, Header, Icon, Menu, Button, Divider } from 'semantic-ui-react'
-import messages from './AutoAlert/messages'
+// import messages from './AutoAlert/messages'
 
 const NavBar = ({ user, msgAlert }) => {
 
@@ -10,16 +10,12 @@ const NavBar = ({ user, msgAlert }) => {
         console.log(e.target) 
         setActiveItem(name)
 		// code for calling a msgAlert, use in all auth components
-		msgAlert({
-			heading: 'Test Message Success',
-			msg: messages.testMessage,
-			variant: 'olive'
-		})
     }
+
     console.log('this is activeItem in header', activeItem);
     
     return (
-			<Container style={{ 'paddingTop': '1rem' }} textAlign='center'>
+			<Container style={{ paddingTop: '1rem' }} textAlign='center'>
 				<Icon name='book' size='big' />
 				<Header as='h1' icon>
 					Librarium
@@ -41,7 +37,7 @@ const NavBar = ({ user, msgAlert }) => {
 						onClick={handleItemClick}
 					/>
 					<Menu.Item position='right'>
-						<Button basic onClick={handleItemClick}>
+						<Button basic as='a' href='#sign-in'>
 							Log In
 						</Button>
 						<Button basic as='a' href='#sign-up'>

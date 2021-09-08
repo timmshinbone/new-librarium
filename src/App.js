@@ -8,6 +8,7 @@ import AutoAlert from './components/shared/AutoAlert/AutoAlert'
 import { Container } from 'semantic-ui-react'
 
 import SignUp from './components/routes/SignUp'
+import SignIn from './components/routes/SignIn'
 
 class App extends Component {
   constructor (props) {
@@ -58,12 +59,12 @@ class App extends Component {
 							<SignUp msgAlert={this.msgAlert} setUser={this.setUser} />
 						)}
 					/>
-					{/* <Route
+					<Route
 						path='/sign-in'
 						render={() => (
 							<SignIn msgAlert={this.msgAlert} setUser={this.setUser} />
 						)}
-					/> */}
+					/>
 				</Container>
 			</Fragment>
 		)
