@@ -11,6 +11,7 @@ import AuthenticatedRoute from './components/shared/AuthenticatedRoute'
 import SignUp from './components/routes/SignUp'
 import SignIn from './components/routes/SignIn'
 import ChangePass from './components/routes/ChangePass'
+import SignOut from './components/routes/SignOut'
 
 class App extends Component {
   constructor (props) {
@@ -44,17 +45,17 @@ class App extends Component {
 			<Fragment>
 				<NavBar user={user} msgAlert={this.msgAlert} />
 				{msgAlerts.map((msgAlert) => (
-          <AutoAlert
-          key={msgAlert.id}
-          heading={msgAlert.heading}
-          variant={msgAlert.variant}
-          msg={msgAlert.msg}
-          id={msgAlert.id}
-          deleteAlert={this.deleteAlert}
+					<AutoAlert
+						key={msgAlert.id}
+						heading={msgAlert.heading}
+						variant={msgAlert.variant}
+						msg={msgAlert.msg}
+						id={msgAlert.id}
+						deleteAlert={this.deleteAlert}
 					/>
-          ))}
+				))}
 				<Container>
-          <h1>Librarium Body Goes Here</h1>
+					<h1>Librarium Body Goes Here</h1>
 					<Route
 						path='/sign-up'
 						render={() => (
@@ -67,13 +68,16 @@ class App extends Component {
 							<SignIn msgAlert={this.msgAlert} setUser={this.setUser} />
 						)}
 					/>
-          <AuthenticatedRoute
-            user={user}
-            path='/change-pw'
-            render={() => (
-              <ChangePass msgAlert={this.msgAlert} user={user} />
-            )}
-          />
+					<AuthenticatedRoute
+						user={user}
+						path='/change-pw'
+						render={() => <ChangePass msgAlert={this.msgAlert} user={user} />}
+					/>
+					<AuthenticatedRoute
+						user={user}
+						path='/sign-out'
+						render={() => <SignOut msgAlert={this.msgAlert} user={user} clearUser={this.clearUser} />}
+					/>
 				</Container>
 			</Fragment>
 		)
