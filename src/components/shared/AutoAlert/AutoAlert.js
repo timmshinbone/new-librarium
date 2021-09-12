@@ -53,7 +53,7 @@ class AutoAlert extends Component {
 
         return (
             <Message
-                dismissible
+                dismissible="true"
                 style={msgStyle}
                 onDismiss={this.handleDismiss}
                 color={ variant }

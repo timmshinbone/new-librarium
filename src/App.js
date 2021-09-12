@@ -4,6 +4,7 @@ import { v4 as uuid } from 'uuid'
 import './index.scss';
 import 'semantic-ui-css/semantic.min.css'
 import NavBar from './components/shared/NavBar'
+import Home from './components/shared/Home'
 import AutoAlert from './components/shared/AutoAlert/AutoAlert'
 import { Container } from 'semantic-ui-react'
 import AuthenticatedRoute from './components/shared/AuthenticatedRoute'
@@ -18,7 +19,8 @@ class App extends Component {
     super(props)
     this.state = {
       user: null,
-      msgAlerts: []
+      msgAlerts: [],
+	  books: []
     }
   }
 
@@ -70,13 +72,24 @@ class App extends Component {
 					/>
 					<AuthenticatedRoute
 						user={user}
+						path='/home'
+						render={() => <Home msgAlert={this.msgAlert} user={user} />}
+					/>
+					<AuthenticatedRoute
+						user={user}
 						path='/change-pw'
 						render={() => <ChangePass msgAlert={this.msgAlert} user={user} />}
 					/>
 					<AuthenticatedRoute
 						user={user}
 						path='/sign-out'
-						render={() => <SignOut msgAlert={this.msgAlert} user={user} clearUser={this.clearUser} />}
+						render={() => (
+							<SignOut
+								msgAlert={this.msgAlert}
+								user={user}
+								clearUser={this.clearUser}
+							/>
+						)}
 					/>
 				</Container>
 			</Fragment>

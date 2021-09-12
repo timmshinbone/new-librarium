@@ -8,4 +8,6 @@ export default {
 	signOutSuccess: 'Come back soon!',
 	changePasswordSuccess: 'Password changed successfully!',
 	changePasswordFailure: 'Failed to change passwords. Check your old password and try again.',
+	booksUpdated: 'Got all the latest books in our database!',
+	booksFailed: 'Failed to retrieve books in database'
 }

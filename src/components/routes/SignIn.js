@@ -34,7 +34,7 @@ class SignIn extends Component {
 					variant: 'olive',
 				})
 			)
-			.then(() => history.push('/'))
+			.then(() => history.push('/home'))
 			.catch((error) => {
 				this.setState({ email: '', password: '' })
 				msgAlert({
