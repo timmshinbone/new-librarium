@@ -59,7 +59,6 @@ class App extends Component {
 					/>
 				))}
 				<Container>
-					<h1>Librarium Body Goes Here</h1>
 					<Route
 						path='/sign-up'
 						render={() => (

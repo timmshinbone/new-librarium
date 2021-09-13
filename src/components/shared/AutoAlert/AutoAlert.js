@@ -28,15 +28,11 @@ class AutoAlert extends Component {
         this.timeoutId = null
     }
 
-    componentDidMount () {
-        console.log('alert mounted');
-        
+    componentDidMount () {        
         this.timeoutId = setTimeout(this.handleDismiss, 3000)
     }
 
     componentWillUnmount () {
-        console.log('alert cleared');
-        
         clearTimeout(this.timeoutId)
     }
 
