@@ -17,8 +17,9 @@ const NavBar = ({ user, msgAlert }) => {
 		<Menu>
 			<Menu.Item
 				name='home'
+				as='a'
+				href='#home'
 				active={activeItem === 'home'}
-				onClick={handleItemClick}
 			/>
 			<Menu.Item position='right'>
 				<Button basic as='a' href='#sign-in'>
@@ -35,17 +36,30 @@ const NavBar = ({ user, msgAlert }) => {
 		<Menu>
 			<Menu.Item
 				name='home'
+				as='a'
+				href='#home'
 				active={activeItem === 'home'}
 				onClick={handleItemClick}
 			/>
 			<Menu.Item
-				name='my books'
-				active={activeItem === 'my books'}
+				name='all copies'
+				as='a'
+				href='#allcopies'
+				active={activeItem === 'all copies'}
 				onClick={handleItemClick}
 			/>
 			<Menu.Item
-				name='all books'
-				active={activeItem === 'all books'}
+				name='my copies'
+				as='a'
+				href='#mycopies'
+				active={activeItem === 'my copies'}
+				onClick={handleItemClick}
+			/>
+			<Menu.Item
+				name='trades'
+				as='a'
+				href='#alltrades'
+				active={activeItem === 'trades'}
 				onClick={handleItemClick}
 			/>
 			<Menu.Item position='right'>
